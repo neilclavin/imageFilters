@@ -14,8 +14,15 @@ class ViewController: UIViewController {
     
     @IBAction func filterTapped(_ sender: Any) {
         RGB()
+        //Blend()
+        
     }
     
+    
+    @IBOutlet weak var stateSwitch: UISwitch!
+    
+    
+    @IBOutlet weak var textField: UITextField!
     
     @IBAction func originalTapped(_ sender: Any) {
         Original()
@@ -24,6 +31,13 @@ class ViewController: UIViewController {
     
     var context = CIContext(options: nil)
     var startingImage : UIImage = UIImage()
+    
+    // RGB default values
+    var rValue = 1
+    var gValue = 1
+    var bValue = 1
+    var aValue = 1
+    
     
     func saveOriginal () {
         // capturing original
@@ -52,12 +66,17 @@ class ViewController: UIViewController {
     
     func RGB() {
         // filter logic
+       
+       Original()
         
         let currentFilter = CIFilter(name: "CIColorMatrix")
         
-        let r:CGFloat = 1
-        let g:CGFloat = 0
-        let b:CGFloat = 0
+        var r = CGFloat(rValue)
+        print(r)
+        
+        let g:CGFloat = 1
+        print(g)
+        let b:CGFloat = 1
         let a:CGFloat = 1.0
         //tintColor.getRed(&r, green:&g, blue:&b, alpha:&a)
         
@@ -72,6 +91,24 @@ class ViewController: UIViewController {
         let processedImage = UIImage(cgImage: cgimg!)
         originalImage.image = processedImage
     }
+    
+    func rChannel() {
+        rValue = 1
+    }
+    
+    func Blend() {
+        // filter logic
+        
+        let currentFilter = CIFilter(name: "CIScreenBlendMode")
+        
+        
+        currentFilter!.setValue(CIImage(image: originalImage.image!), forKey: kCIInputImageKey)
+        let output = currentFilter!.outputImage
+        let cgimg = context.createCGImage(output!,from: output!.extent)
+        let processedImage = UIImage(cgImage: cgimg!)
+        originalImage.image = processedImage
+    }
+    
     
     
     func Noir() {
@@ -96,11 +133,29 @@ class ViewController: UIViewController {
     }
     
     
+    
+    @objc func stateChanged(switchState: UISwitch) {
+        if switchState.isOn {
+            
+            rValue = 1
+            textField.text = "1"
+        } else {
+            
+            rValue = 0
+            textField.text = "0"
+        }
+        RGB()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         saveOriginal ()
         
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // Set up switch state
+         stateSwitch.addTarget(self, action: #selector(stateChanged), for: UIControlEvents.valueChanged)
     }
 
     override func didReceiveMemoryWarning() {
