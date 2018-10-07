@@ -49,6 +49,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dqs-gQ-oNB">
+                                <rect key="frame" x="260" y="537" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -56,6 +60,7 @@
                     <connections>
                         <outlet property="originalImage" destination="ZPN-pM-JRj" id="JYe-bg-2Do"/>
                         <outlet property="stateSwitch" destination="HKR-92-Yq0" id="KKl-1L-mLU"/>
+                        <outlet property="stateSwitchG" destination="dqs-gQ-oNB" id="DgY-1c-Afx"/>
                         <outlet property="textField" destination="DPp-Bp-QTG" id="Erd-FZ-B5T"/>
                     </connections>
                 </viewController>

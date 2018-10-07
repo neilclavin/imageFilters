@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var stateSwitch: UISwitch!
     
+    @IBOutlet weak var stateSwitchG: UISwitch!
     
     @IBOutlet weak var textField: UITextField!
     
@@ -74,8 +75,8 @@ class ViewController: UIViewController {
         var r = CGFloat(rValue)
         print(r)
         
-        let g:CGFloat = 1
-        print(g)
+        var g = CGFloat(gValue)
+        print("G:\(g)G")
         let b:CGFloat = 1
         let a:CGFloat = 1.0
         //tintColor.getRed(&r, green:&g, blue:&b, alpha:&a)
@@ -148,6 +149,21 @@ class ViewController: UIViewController {
     }
     
     
+    @objc func stateChangedG(switchStateG: UISwitch) {
+        if switchStateG.isOn {
+
+            gValue = 1
+            //textField.text = "1"
+        } else {
+
+            gValue = 0
+            //textField.text = "0"
+        }
+        RGB()
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         saveOriginal ()
@@ -156,6 +172,9 @@ class ViewController: UIViewController {
         
         // Set up switch state
          stateSwitch.addTarget(self, action: #selector(stateChanged), for: UIControlEvents.valueChanged)
+        stateSwitchG.addTarget(self, action: #selector(stateChangedG), for: UIControlEvents.valueChanged)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
