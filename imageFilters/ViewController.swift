@@ -82,7 +82,7 @@ class ViewController: UIViewController {
         //tintColor.getRed(&r, green:&g, blue:&b, alpha:&a)
         
         currentFilter!.setValue(CIImage(image: originalImage.image!), forKey: "inputImage")
-        currentFilter!.setValue(CIVector(x:r, y:0, z:0, w:0), forKey:"inputRVector")
+        currentFilter!.setValue(CIVector(x:r, y:0, z:0, w:1), forKey:"inputRVector")
         currentFilter!.setValue(CIVector(x:0, y:g, z:0, w:0), forKey:"inputGVector")
         currentFilter!.setValue(CIVector(x:0, y:0, z:b, w:0), forKey:"inputBVector")
         currentFilter!.setValue(CIVector(x:0, y:0, z:0, w:a), forKey:"inputAVector")

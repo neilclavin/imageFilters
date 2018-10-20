@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="luca5" translatesAutoresizingMaskIntoConstraints="NO" id="ZPN-pM-JRj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="luca1" highlightedImage="luca1" translatesAutoresizingMaskIntoConstraints="NO" id="ZPN-pM-JRj">
                                 <rect key="frame" x="67" y="34" width="240" height="373"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -70,6 +70,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="luca5" width="500" height="738"/>
+        <image name="luca1" width="596" height="843"/>
     </resources>
 </document>
